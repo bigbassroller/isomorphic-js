@@ -1,4 +1,8 @@
-var Hapi = require('hapi');
+import Hapi from 'hapi';
+import nunjucks from 'nunjucks';
+
+// configure nunjucks to read from the dist directory
+nunjucks.configure('./dist');
 
 // Create a server with a host and port
 var server = new Hapi.Server();
