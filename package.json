@@ -1,0 +1,36 @@
+{
+  "name": "isomorphic-js",
+  "version": "0.0.1",
+  "description": "Isomorphic Javascript app. No MV* frameworks allowed!",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Isomorphic",
+    "JavaScript"
+  ],
+  "author": "Michael Chavez | Space-Rocket - UI/UX Design & Development",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^13.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-nodemon": "^2.0.6",
+    "run-sequence": "^1.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigbassroller/isomorphic-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bigbassroller/isomorphic-js/issues"
+  },
+  "homepage": "https://github.com/bigbassroller/isomorphic-js#readme",
+  "directories": {
+    "example": "example"
+  }
+}
