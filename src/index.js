@@ -5,7 +5,7 @@ import nunjucks from 'nunjucks';
 nunjucks.configure('./dist');
 
 // Create a server with a host and port
-var server = new Hapi.Server();
+const server = new Hapi.Server();
 server.connection({
     host: 'localhost',
     port: 8000
@@ -16,7 +16,11 @@ server.route({
     method: 'GET',
     path:'/hello',
     handler: function (request, reply) {
-       reply('hello world');
+       nunjucks.render('index.html', {
+       	fname: 'Michael', lname: 'Chavez'
+       }, function (err, html) {
+       	reply(html);
+       })
     }
 });
 
