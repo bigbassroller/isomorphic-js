@@ -1,7 +1,7 @@
 import Hapi from 'hapi';
 import Application from './lib';
-import nunjucks from 'nunjucks';
 import Controller from './lib/controller';
+import HelloController from './hello-controller';
 
 // Create a server with a host and port
 const server = new Hapi.Server();
@@ -11,9 +11,10 @@ server.connection({
 });
 
 const application = new Application({
-	'/': Controller
+	'/': Controller,
+	'/hello/{name*}': HelloController
 }, {
-	server
-})
+	server: server
+});
 
 application.start();
