@@ -14,13 +14,18 @@
   "license": "MIT",
   "dependencies": {
     "hapi": "^13.2.1",
-    "nunjucks": "^2.4.0"
+    "inert": "^3.2.0",
+    "nunjucks": "^2.4.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^5.1.0",
     "gulp-nodemon": "^2.0.6",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "vinyl-source-stream": "^1.1.0"
   },
   "repository": {
     "type": "git",
@@ -32,5 +37,8 @@
   "homepage": "https://github.com/bigbassroller/isomorphic-js#readme",
   "directories": {
     "example": "example"
+  },
+  "browser": {
+    "./src/index.js": "./src/index.client.js"
   }
 }
