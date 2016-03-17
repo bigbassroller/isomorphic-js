@@ -28,11 +28,11 @@ export default class HelloController extends Controller {
 
 	toString(callback) {
 		// read template and compile using context object
-		nunjucks.render('index.html', getName(this.context), (err, html) => {
+		nunjucks.renderString('<p>hello {{fname}} {{lname}}</p>', getName(this.context), (err, html) => {
 			if (err) {
 				return callback(err, null);
 			}
-			callback(null, html);
+			callback(null, html)
 		});
 	}
 }
