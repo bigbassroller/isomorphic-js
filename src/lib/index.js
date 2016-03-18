@@ -1,25 +1,27 @@
+import cookieFactory from './cookie';
+
 export default class Application {
 
-	constructor(routes, options) {
-		this.server = options.server;
-		this.document = options.document;
-		this.registerRoutes(routes);
-	}
+  constructor(routes, options) {
+    this.options = options;
+    this.registerRoutes(routes);
+  }
 
-	registerRoutes(routes) {
-		for (let path in routes) {
-			this.addRoute(path, routes[path]);
-		}
-	}
+  registerRoutes(routes) {
+    for (let path in routes) {
+      this.addRoute(path, routes[path]);
+    }
+  }
 
   addRoute(path, Controller) {
-    this.server.route({
+    this.options.server.route({
       path: path,
       method: 'GET',
       handler: (request, reply) => {
         const controller = new Controller({
           query: request.query,
-          params: request.params
+          params: request.params,
+          cookie: cookieFactory(request, reply)
         });
 
         controller.index(this, request, reply, (err) => {
@@ -32,7 +34,7 @@ export default class Application {
               return reply(err);
             }
 
-            this.document(this, controller, request, reply, html, function (err, html) {
+            this.options.document(this, controller, request, reply, html, (err, html) => {
               if (err) {
                 return reply(err);
               }
@@ -45,8 +47,8 @@ export default class Application {
     });
   }
 
-	start() {
-		this.server.start();
-	}
+  start() {
+    this.options.server.start();
+  }
 
 }

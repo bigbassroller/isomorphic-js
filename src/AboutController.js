@@ -26,7 +26,7 @@ function getName(context) {
   return name;
 }
 
-export default class HelloController extends Controller {
+export default class AboutController extends Controller {
 
   index(application, request, reply, callback) {
     this.context.cookie.set('random', '_' + (Math.floor(Math.random() * 1000) + 1), { path: '/' });
@@ -41,7 +41,7 @@ export default class HelloController extends Controller {
     let context = getName(this.context);
     context.data = this.context.data;
 
-    nunjucks.render('hello.html', context, (err, html) => {
+    nunjucks.render('about.html', context, (err, html) => {
       if (err) {
         return callback(err, null);
       }
