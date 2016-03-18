@@ -1,7 +1,7 @@
 import Hapi from 'hapi';
 import Application from './lib';
 import Controller from './lib/controller';
-import HelloController from './hello-controller';
+import HelloController from './HelloController';
 import nunjucks from 'nunjucks';
 import Path from 'path';
 import Inert from 'inert';
@@ -15,7 +15,6 @@ server.connection({
 
 const APP_FILE_PATH = '/application.js';
 const application = new Application({
-	'/': Controller,
 	'/hello/{name*}': HelloController
 }, {
 	server: server,
