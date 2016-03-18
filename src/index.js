@@ -1,7 +1,8 @@
 import Application from './lib';
 import HelloController from './HelloController';
-import HomeController from './HomeController';
-import AboutController from './AboutController';
+import HomeController from './components/pages/Home/HomeController';
+import AboutController from './components/pages/About/AboutController';
+
 import nunjucks from 'nunjucks';
 import options from './options';
 

@@ -1,4 +1,4 @@
-import Controller from './lib/Controller';
+import Controller from '../../../lib/Controller';
 import nunjucks from 'nunjucks';
 
 function onClick(e) {
@@ -8,8 +8,8 @@ function onClick(e) {
 function getName(context) {
   // default values
   let name = {
-    fname: 'Rick',
-    lname: 'Sanchez'
+    fname: 'Michael',
+    lname: 'Chavez'
   };
   // split path params
   let nameParts = context.params.name ? context.params.name.split('/') : [];
@@ -41,7 +41,7 @@ export default class AboutController extends Controller {
     let context = getName(this.context);
     context.data = this.context.data;
 
-    nunjucks.render('about.html', context, (err, html) => {
+    nunjucks.render('components/pages/about/about.html', context, (err, html) => {
       if (err) {
         return callback(err, null);
       }
