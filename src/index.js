@@ -6,6 +6,9 @@ import nunjucks from 'nunjucks';
 import Path from 'path';
 import Inert from 'inert';
 
+// configure nunjucks to read from the dist directory
+nunjucks.configure('./dist');
+
 // Create a server with a host and port
 const server = new Hapi.Server();
 server.connection({

@@ -28,7 +28,7 @@ export default class HelloController extends Controller {
 
 	toString(callback) {
 		// read template and compile using context object
-		nunjucks.renderString('<p>hello {{fname}} {{lname}}</p>', getName(this.context), (err, html) => {
+		nunjucks.renderString('Hello {{fname}} {{lname}}', getName(this.context), (err, html) => {
 			if (err) {
 				return callback(err, null);
 			}
