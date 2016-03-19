@@ -18,7 +18,7 @@ gulp.task('sass', function () {
             './src/sass/font-awesome.scss',
             './src/sass/custom.scss'
         ],
-        dest: './dist/assets/css',
+        dest: './dist/styles',
         outputName: 'main.min.css'
     }];
 
@@ -33,7 +33,10 @@ gulp.task('sass', function () {
 });
 
 gulp.task('copy', function () {
-  return gulp.src('src/**/*.html')
+  return gulp.src([
+    'src/**/*.html',
+    'src/**/*.png'
+    ])
     .pipe(gulp.dest('dist'));
 });
 

@@ -35,9 +35,20 @@ server.route({
     method: 'GET',
     path: '/{file}.css',
     handler: function (request, reply) {
-        reply.file("dist/assets/css/"+request.params.file+".css");
+        reply.file("dist/styles/"+request.params.file+".css");
     }
 });
+
+server.route({
+    method: 'GET',
+    path: '/images/{param*}',
+    handler: {
+        directory: {
+            path: 'dist/assets/img/'
+        }
+    }
+});
+
 
 export default {
   nunjucks: './dist',
