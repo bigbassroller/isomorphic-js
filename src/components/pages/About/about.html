@@ -1,10 +1,5 @@
 <h1>Welcome to the About Page</h1>
 <p>hello {{fname}} {{lname}}</p>
 <p>Random Number in Context: {{data.random}}</p>
-<ul>
-  <li><a href="/" data-navigate>Home</a></li>
-  <li><a href="/about" data-navigate>About</a></li>
-  <li><a href="/portfolio" data-navigate>Portfolio</a></li>
-  <li><a href="/blog" data-navigate>Blog</a></li>
-  <li><a href="/contact" data-navigate>Contact</a></li>
-</ul>
+{% include "components/partials/nav.html" %}
+
