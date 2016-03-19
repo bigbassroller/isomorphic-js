@@ -41,10 +41,10 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/images/{param*}',
+    path: '/{param*}',
     handler: {
         directory: {
-            path: 'dist/assets/img/'
+            path: 'dist/imgs/'
         }
     }
 });
