@@ -1,5 +1,5 @@
 import Application from './lib';
-import HelloController from './HelloController';
+import HelloController from './components/pages/Hello/HelloController';
 import HomeController from './components/pages/Home/HomeController';
 import AboutController from './components/pages/About/AboutController';
 import PortfolioController from './components/pages/Portfolio/PortfolioController';
