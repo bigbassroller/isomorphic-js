@@ -10,6 +10,8 @@ import options from './options';
 
 nunjucks.configure(options.nunjucks);
 
+const styles = 'assets/css/main.min.css';
+
 const application = new Application({
   '/hello/{name*}': HelloController,
   '/': HomeController,

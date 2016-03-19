@@ -31,6 +31,14 @@ server.route({
   }
 });
 
+server.route({
+    method: 'GET',
+    path: '/{file}.css',
+    handler: function (request, reply) {
+        reply.file("dist/assets/css/"+request.params.file+".css");
+    }
+});
+
 export default {
   nunjucks: './dist',
   server: server,
