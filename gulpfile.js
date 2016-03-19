@@ -49,6 +49,7 @@ gulp.task('compile', function () {
 gulp.task('watch', function () {
   gulp.watch('src/**/*.js', ['compile', 'bundle'])
   gulp.watch('src/**/*.html', ['copy']);
+  gulp.watch('src/**/*.scss', ['sass']);
 });
 
 gulp.task('bundle', function () {

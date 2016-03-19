@@ -1,6 +1,6 @@
 npm-debug.log
 __example/
-node_modules/
+#node_modules/
 dist/
 example/
 .DS_Store

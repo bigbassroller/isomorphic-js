@@ -5,11 +5,14 @@ function onClick(e) {
   console.log(e.currentTarget);
 }
 
-function getName(context) {
+function ignitor(context) {
   // default values
   let name = {
     fname: 'Michael',
-    lname: 'Chavez'
+    lname: 'Chavez',
+    cloud1: '/cloud-1.png',
+    cloud2: '/cloud-2.png',
+    cloud3: '/cloud-3.png'
   };
   // split path params
   let nameParts = context.params.name ? context.params.name.split('/') : [];
@@ -38,7 +41,7 @@ export default class HomeController extends Controller {
     // this can be handled more eloquently using Object.assign
     // but we are not including the polyfill dependency
     // for the sake of simplicity
-    let context = getName(this.context);
+    let context = ignitor(this.context);
     context.data = this.context.data;
 
     nunjucks.render('components/pages/Home/home.html', context, (err, html) => {

@@ -1,8 +1,12 @@
-<link href="/main.min.css" rel="stylesheet">
-<img src="/logo-2x.png" alt="Space-Rocket | UI/UX Design & Development Logo">
-<h1>Welcome to the Home page</h1>
-<p>hello {{fname}} {{lname}}</p>
-<p>Random Number in Context: {{data.random}}</p>
-{% include "components/partials/nav-home.html" %}
+{% include "components/partials/nav.html" %}
+<div id="cloud1" style="background-image: url({{cloud1}}); width: 120px; height: 78px;"></div>
+<div id="cloud2" style="background-image: url({{cloud2}}); width: 155px; height: 104px;"></div>
+<div id="cloud3" style="background-image: url({{cloud3}}); width: 125px; height: 94px;"></div>
+<h1>WE BUILD WEB APPS FROM START TO FINISH</h1>
+<p>
+  <a href="/about" class="btn btn-primary btn-lg" data-navigate>FIND OUT MORE</a>
+  <a href="/contact" class="btn btn-default btn-lg" data-navigate>HIRE US</a>
+</p>
+
 
 
