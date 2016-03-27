@@ -1,3 +1,3 @@
-# thaumoctopus-mimicus
+# Isomorphic JS
 
-> An isomorphic JavaScript application example
+> An isomorphic JavaScript website application example
