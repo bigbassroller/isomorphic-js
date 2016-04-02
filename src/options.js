@@ -8,7 +8,7 @@ const server = new Hapi.Server({
   }
 });
 server.connection({
-  host: 'isomorphic-js.ignitor.io',
+  host: 'ignitor.io',
   port: 8000
 });
 
