@@ -4,3 +4,4 @@ __example/
 dist/
 example/
 .DS_Store
+node_modules
