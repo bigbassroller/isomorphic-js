@@ -8,7 +8,7 @@ const server = new Hapi.Server({
   }
 });
 server.connection({
-  host: 'localhost',
+  host: '159.203.251.176',
   port: 8000
 });
 
