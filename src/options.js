@@ -8,8 +8,8 @@ const server = new Hapi.Server({
   }
 });
 server.connection({
-  host: 'isomorphic-js.ignitor.io',
-  port: 8420
+  host: 'ignitor.io',
+  port: 8001
 });
 
 const APP_FILE_PATH = '/application.js';
