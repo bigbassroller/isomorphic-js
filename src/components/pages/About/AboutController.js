@@ -41,7 +41,7 @@ export default class AboutController extends Controller {
     let context = getName(this.context);
     context.data = this.context.data;
 
-    nunjucks.render('components/pages/about/about.html', context, (err, html) => {
+    nunjucks.render('components/pages/About/about.html', context, (err, html) => {
       if (err) {
         return callback(err, null);
       }

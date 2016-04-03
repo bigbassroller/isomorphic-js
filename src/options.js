@@ -8,7 +8,7 @@ const server = new Hapi.Server({
   }
 });
 server.connection({
-  host: 'ignitor.io',
+  host: 'localhost',
   port: 8001
 });
 
