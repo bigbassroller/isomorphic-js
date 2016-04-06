@@ -13,9 +13,10 @@ gulp.task('sass', function () {
 
     var bundleConfigs = [{
         entries: [
-            './src/sass/variables.scss',
-            './src/sass/bootstrap.scss',
-            './src/sass/font-awesome.scss',
+            // './src/sass/variables.scss',
+            // './src/sass/bootstrap.scss',
+            // './src/sass/font-awesome.scss',
+            './src/sass/slideout.scss',
             './src/sass/custom.scss'
         ],
         dest: './dist/styles',
@@ -27,7 +28,8 @@ gulp.task('sass', function () {
         return gulp.src(bundleConfig.entries)
             .pipe(newer(path.join(bundleConfig.dest, bundleConfig.outputName)))
             .pipe(concat(bundleConfig.outputName))
-            .pipe(sass({outputStyle: 'compressed'}))
+            // .pipe(sass({outputStyle: 'compressed'}))
+            .pipe(sass())
             .pipe(gulp.dest(bundleConfig.dest));
     });
 });
@@ -42,7 +44,7 @@ gulp.task('copy', function () {
 
 gulp.task('compile', function () {
   return gulp.src('src/**/*.js')
-    .pipe(babel())
+    .pipe(babel({ presets: ['es2015'] })) 
     .pipe(gulp.dest('dist'));
 });
 
