@@ -3,6 +3,18 @@
 Roadmap:
 Add slideout.js navigation
 Replace gulp/browserify with webpack?
+Add Postcss vs SASS?
+Add Object.assign in place toString callback
+Add Linters for CSS and JS
+Add unit test
+Convert to typescript
+Ensure security from cross scripting attack
+Add mongodb
+Add todos
+Add Postman
+Update all dependencies
+Make gulp build task
+
 
 Helpful links in understanding the structure of the app:
 [Building Isomorphic JavaScript Apps From Concept to Implementation to Real-World Solutions](http://shop.oreilly.com/product/0636920042846.do)
