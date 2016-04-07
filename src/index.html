@@ -16,10 +16,24 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   <body>
-    {{body}}
+  <div id="main">
+      {{body}}
+  </div>
+
   </body>
   <script type="text/javascript">
     window.__STATE__ = '{{state}}';
   </script>
   <script type="text/javascript" src={{application}}></script>
+  <script type="text/javascript">
+    /* Set the width of the side navigation to 250px */
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  /* Set the width of the side navigation to 0 */
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
 </html>

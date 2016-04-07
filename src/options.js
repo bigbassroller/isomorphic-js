@@ -21,6 +21,15 @@ server.route({
   }
 });
 
+const SLIDEOUT_FILE_PATH = '/slideout.js';
+server.route({
+  method: 'GET',
+  path: SLIDEOUT_FILE_PATH,
+  handler: (request, reply) => {
+    reply.file('dist/slideout.js');
+  }
+});
+
 server.route({
   method: 'GET',
   path: '/templates/{template*}',
