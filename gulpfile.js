@@ -13,10 +13,9 @@ gulp.task('sass', function () {
 
     var bundleConfigs = [{
         entries: [
-            // './src/sass/variables.scss',
-            // './src/sass/bootstrap.scss',
-            // './src/sass/font-awesome.scss',
-            './src/sass/slideout.scss',
+            './src/sass/variables.scss',
+            './src/sass/bootstrap.scss',
+            './src/sass/font-awesome.scss',
             './src/sass/custom.scss'
         ],
         dest: './dist/styles',
@@ -37,7 +36,9 @@ gulp.task('sass', function () {
 gulp.task('copy', function () {
   return gulp.src([
     'src/**/*.html',
-    'src/**/*.png'
+    'src/**/*.png',
+    // 'node_modules/slideout/dist/slideout.min.js',
+    'node_modules/slideout/dist/slideout.js'
     ])
     .pipe(gulp.dest('dist'));
 });
@@ -73,6 +74,10 @@ gulp.task('start', function () {
     ext: 'js',
     env: { 'NODE_ENV': 'development' }
   });
+});
+
+gulp.task('build', function (callback) {
+  sequence(['sass', 'compile', 'copy', 'bundle'], callback);
 });
 
 gulp.task('default', function (callback) {

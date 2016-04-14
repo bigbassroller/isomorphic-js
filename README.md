@@ -19,3 +19,5 @@ Make gulp build task
 Helpful links in understanding the structure of the app:
 [Building Isomorphic JavaScript Apps From Concept to Implementation to Real-World Solutions](http://shop.oreilly.com/product/0636920042846.do)
 [Package.json Browser Property Spec](https://github.com/defunctzombie/package-browser-field-spec)
+[Object.assign() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+[object-assign npm package - ES6 Object.assign() ponyfill](https://www.npmjs.com/package/object-assign)

@@ -1,0 +1,15 @@
+{
+  "id":"1",
+   "title":"Marc Bernstein",
+   "featured-image":"./mbernstein.png",
+},
+{
+  "id":"2", 
+  "title":"PLOS", 
+  "featured-image":"./plos.png"
+},
+{
+  "id":"3",
+  "title":"The Intuitive Writing Project", 
+  "featured-image":"./tiwp.png"
+}
