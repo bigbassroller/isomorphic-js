@@ -37,6 +37,7 @@ gulp.task('copy', function () {
   return gulp.src([
     'src/**/*.html',
     'src/**/*.png',
+    'src/**/*.json',
     // 'node_modules/slideout/dist/slideout.min.js',
     'node_modules/slideout/dist/slideout.js'
     ])
