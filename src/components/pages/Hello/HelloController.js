@@ -11,9 +11,15 @@ function getName(context) {
     fname: 'Michael',
     lname: 'Chavez'
   };
+
   // split path params
   let nameParts = context.params.name ? context.params.name.split('/') : [];
 
+  // let dataURL = '/data.json';
+
+  // let dataContent = context.params.dataURL;
+
+  // console.log(dataContent);
   // order of precedence
   // 1. path param
   // 2. query param

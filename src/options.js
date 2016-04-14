@@ -21,6 +21,15 @@ server.route({
   }
 });
 
+const JSON_FILE_PATH = '/data.json';
+server.route({
+  method: 'GET',
+  path: JSON_FILE_PATH,
+  handler: (request, reply) => {
+    reply.file('dist/components/pages/Home/data.json');
+  }
+});
+
 const SLIDEOUT_FILE_PATH = '/slideout.js';
 server.route({
   method: 'GET',
