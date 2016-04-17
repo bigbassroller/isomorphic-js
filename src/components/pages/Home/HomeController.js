@@ -14,11 +14,17 @@ function getName(context) {
     lname: 'Chavez'
   };
 
+
+
   return name;
 }
 
 getUsefulContents("http://localhost:8001/data.json", data => {
-  console.log(data);
+  // console.log(data);
+  let name = data;
+
+  console.log(name);
+  return name;
 });
 
 export default class HomeController extends Controller {
