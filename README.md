@@ -11,7 +11,7 @@ Roadmap:
 * Ensure security from cross scripting attack
 * Add mongodb
 * Add todos
-* Add Postman
+* Add nodemailer
 * Update all dependencies
 * ~~Make gulp build task~~
 * Add data from json array
