@@ -1,6 +1,19 @@
 import Controller from '../../../lib/controller';
 import nunjucks from 'nunjucks';
 import { getUsefulContents } from '../../../lib/ajax';
+import objectAssign from 'object-assign';
+import $ from 'jquery';
+import jQuery from 'jquery';
+import window from 'window-shim';
+// export for others scripts to use
+window.$ = $;
+window.jQuery = jQuery;
+
+if (window.jQuery) {  
+    console.log('jquery')
+} else {
+    console.log('no jquery')
+}
 
 
 function onClick(e) {
