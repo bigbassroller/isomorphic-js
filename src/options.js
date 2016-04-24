@@ -30,24 +30,6 @@ server.route({
   }
 });
 
-const SLIDEOUT_FILE_PATH = '/slideout.js';
-server.route({
-  method: 'GET',
-  path: SLIDEOUT_FILE_PATH,
-  handler: (request, reply) => {
-    reply.file('dist/slideout.js');
-  }
-});
-
-const DATA_FILE_PATH = '/data.json';
-server.route({
-  method: 'GET',
-  path: DATA_FILE_PATH,
-  handler: (request, reply) => {
-    reply.file('dist/components/pages/Home/data.json');
-  }
-});
-
 server.route({
   method: 'GET',
   path: '/templates/{template*}',
