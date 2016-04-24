@@ -1,6 +1,7 @@
 import Hapi from 'hapi';
 import path from 'path';
 import nunjucks from 'nunjucks';
+import Inert from 'inert';
 
 const server = new Hapi.Server({
   debug: {
@@ -11,6 +12,7 @@ server.connection({
   host: 'localhost',
   port: 8001
 });
+server.register(Inert, () => {});
 
 const APP_FILE_PATH = '/application.js';
 server.route({
