@@ -5,8 +5,7 @@ import objectAssign from 'object-assign';
 import $ from 'jquery';
 import jQuery from 'jquery';
 import window from 'window-shim';
-import fs from 'file-system';
-import myfuckingdata from './data.json';
+import data from './data.json';
 // export for others scripts to use
 window.$ = $;
 window.jQuery = jQuery;
@@ -23,18 +22,10 @@ function onClick(e) {
 }
 
 function getData(context) {
- let name = myfuckingdata;
+ let name = data;
 
  return name;
 }
-
-getUsefulContents("http://localhost:8001/data.json", data => {
-  // console.log(data);
-  let name = data;
-
-  console.log(name);
-  return name;
-});
 
 export default class HomeController extends Controller {
 
