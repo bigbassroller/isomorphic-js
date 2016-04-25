@@ -8,8 +8,8 @@ function onClick(e) {
 function getName(context) {
   // default values
   let name = {
-    fname: 'Michael',
-    lname: 'Chavez'
+    fname: 'Chuck',
+    lname: 'Norris'
   };
   // split path params
   let nameParts = context.params.name ? context.params.name.split('/') : [];

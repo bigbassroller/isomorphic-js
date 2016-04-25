@@ -1,10 +1,12 @@
 import Controller from '../../../lib/controller';
 import nunjucks from 'nunjucks';
+import { getUsefulContents } from '../../../lib/ajax';
 import objectAssign from 'object-assign';
 import $ from 'jquery';
 import jQuery from 'jquery';
 import window from 'window-shim';
-// export for others scripts to use
+import data from './data.json';
+
 window.$ = $;
 window.jQuery = jQuery;
 
@@ -18,26 +20,10 @@ function onClick(e) {
   console.log(e.currentTarget);
 }
 
-function getName(context) {
-  // default values
-  let name = {
-    fname: 'Michael',
-    lname: 'Chavez'
-  };
+function getData(context) {
+ let name = data;
 
-  // split path params
-  let nameParts = context.params.name ? context.params.name.split('/') : [];
-
-  // order of precedence
-  // 1. path param
-  // 2. query param
-  // 3. default value
-  name.fname = (nameParts[0] || context.query.fname) ||
-    name.fname;
-  name.lname = (nameParts[1] || context.query.lname) ||
-    name.lname;
-
-  return name;
+ return name;
 }
 
 export default class HomeController extends Controller {
@@ -53,7 +39,7 @@ export default class HomeController extends Controller {
     // this can be handled more eloquently using Object.assign
     // but we are not including the polyfill dependency
     // for the sake of simplicity
-    let context = getName(this.context);
+    let context = getData(this.context);
     context.data = this.context.data;
 
     let colors = ["red", "blue", "green"];
