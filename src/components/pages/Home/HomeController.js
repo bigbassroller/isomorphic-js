@@ -5,6 +5,8 @@ import objectAssign from 'object-assign';
 import $ from 'jquery';
 import jQuery from 'jquery';
 import window from 'window-shim';
+import fs from 'file-system';
+import myfuckingdata from './data.json';
 // export for others scripts to use
 window.$ = $;
 window.jQuery = jQuery;
@@ -20,16 +22,10 @@ function onClick(e) {
   console.log(e.currentTarget);
 }
 
-function getName(context) {
-  // default values
-  let name = {
-    fname: 'Michael',
-    lname: 'Chavez'
-  };
+function getData(context) {
+ let name = myfuckingdata;
 
-
-
-  return name;
+ return name;
 }
 
 getUsefulContents("http://localhost:8001/data.json", data => {
@@ -53,7 +49,7 @@ export default class HomeController extends Controller {
     // this can be handled more eloquently using Object.assign
     // but we are not including the polyfill dependency
     // for the sake of simplicity
-    let context = getName(this.context);
+    let context = getData(this.context);
     context.data = this.context.data;
 
     nunjucks.render('components/pages/Home/home.html', context, (err, html) => {

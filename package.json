@@ -25,6 +25,7 @@
     "bootstrap-sass": "^3.3.6",
     "call": "^2.0.2",
     "cookies-js": "^1.2.2",
+    "file-system": "^2.2.1",
     "font-awesome": "^4.5.0",
     "hapi": "^8.8.0",
     "jquery": "^2.2.3",
