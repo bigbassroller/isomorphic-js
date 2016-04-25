@@ -14,7 +14,8 @@ Roadmap:
 * Add nodemailer
 * Update all dependencies
 * ~~Make gulp build task~~
-* Add data from json array
+* ~~Add data from json array~~
+* Add controller for nave to display username from json file
 
 
 Helpful links in understanding the structure of the app:
