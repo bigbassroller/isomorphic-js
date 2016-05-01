@@ -23,3 +23,4 @@ Helpful links in understanding the structure of the app:
 [Package.json Browser Property Spec](https://github.com/defunctzombie/package-browser-field-spec)
 [Object.assign() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 [object-assign npm package - ES6 Object.assign() ponyfill](https://www.npmjs.com/package/object-assign)
+[Designing APIs for Asynchrony by Isaac Z. Schlueter](http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony)
