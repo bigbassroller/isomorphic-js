@@ -1,0 +1,58 @@
+[
+  {
+    "project_name": "Eneconfoo",
+    "cover_photo": "enecon.png",
+    "case_study_url": "enecon",
+    "live_site_url": "http://eneconnorcal.com/",
+    "entry_title": "Custom WordPress Theme That is Reusable",
+    "entry_content": "Ma nizzle . Aliquam sagittis massa owned maurizzle.",
+    "featured_image": "banner-placeholder.png",
+    "categories": [
+      "web design",
+      "web development",
+      "wordpress"
+    ],
+    "project_completion_date": "May 2014",
+    "publish_date": "May 2014",
+    "post_order": 2,
+    "published": true,
+    "id": 3
+  },
+  {
+    "project_name": "CloudZilla",
+    "cover_photo": "portfolio-placeholder1@1x.png",
+    "case_study_url": "cloudzilla",
+    "live_site_url": "https://www.cloudzilla.com",
+    "entry_title": "Web & Graphic Design for Startup Helps Attract Silicon Valley Tech Talent",
+    "entry_content": "Lorem stuff fo sit amizzle, fo shizzle adipiscing elit.",
+    "featured_image": "banner-placeholder.png",
+    "categories": [
+      "web design",
+      "graphic design",
+      "illustration"
+    ],
+    "project_completion_date": "January 2016",
+    "publish_date": "April 19, 2016",
+    "post_order": 0,
+    "published": true,
+    "id": null
+  },
+  {
+    "project_name": "Public Library of Science",
+    "cover_photo": "plos.png",
+    "case_study_url": "plos",
+    "live_site_url": "http://blogs.plos.org/",
+    "entry_title": "WordPress Multisite, Built for Many Publishers",
+    "entry_content": "Donizzle posuere auctizzle mofo.",
+    "featured_image": "banner-placeholder.png",
+    "categories": [
+      "web development",
+      "wordpress"
+    ],
+    "project_completion_date": "October 2015",
+    "publish_date": "October 2015",
+    "post_order": 1,
+    "published": true,
+    "id": null
+  }
+]

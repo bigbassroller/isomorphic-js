@@ -6,6 +6,10 @@ import $ from 'jquery';
 import jQuery from 'jquery';
 import window from 'window-shim';
 import data from './data.json';
+import fetch from "isomorphic-fetch";
+import promise from "es6-promise";
+import co from "co";
+
 // export for others scripts to use
 window.$ = $;
 window.jQuery = jQuery;
