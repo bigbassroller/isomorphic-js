@@ -39,6 +39,15 @@ server.route({
   }
 });
 
+const PORTFOLIO_DATA_FILE_PATH = '/portfolio.json';
+server.route({
+  method: 'GET',
+  path: PORTFOLIO_DATA_FILE_PATH,
+  handler: (request, reply) => {
+    reply.file('dist/components/pages/Home/portfolio.json');
+  }
+});
+
 server.route({
   method: 'GET',
   path: '/templates/{template*}',

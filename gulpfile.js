@@ -39,7 +39,8 @@ gulp.task('copy', function () {
     'src/**/*.png',
     'src/**/*.json',
     // 'node_modules/slideout/dist/slideout.min.js',
-    'node_modules/slideout/dist/slideout.js'
+    'node_modules/slideout/dist/slideout.js',
+    'node_modules/babel-polyfill/dist/polyfill.min.js'
     ])
     .pipe(gulp.dest('dist'));
 });

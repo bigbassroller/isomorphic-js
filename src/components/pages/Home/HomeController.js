@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import Controller from '../../../lib/controller';
 import nunjucks from 'nunjucks';
 import { getUsefulContents } from '../../../lib/ajax';
@@ -5,10 +6,10 @@ import objectAssign from 'object-assign';
 import $ from 'jquery';
 import jQuery from 'jquery';
 import window from 'window-shim';
-import data from './data.json';
 import fetch from "isomorphic-fetch";
 import promise from "es6-promise";
 import co from "co";
+import superagent from "superagent";
 
 // export for others scripts to use
 window.$ = $;
@@ -24,12 +25,32 @@ if (window.jQuery) {
 function onClick(e) {
   console.log(e.currentTarget);
 }
-
+  
 function getData(context) {
- let name = data;
+ let name = {
+  "foo": "bar"
+ }
 
  return name;
 }
+
+let res;
+const portfolioData = co().res;
+console.log('iam defined yet?', res);
+
+co(function*() {
+  let res;
+  try {
+    res = yield superagent.get('/portfolio.json')
+  } catch (error) {
+    // getCached() is undefined
+    res = getCached();
+  }
+  // res needs to be available outside this function
+  console.log('this is the mother fucking response! => ', res);
+  return res;
+}).catch();
+
 
 export default class HomeController extends Controller {
 
