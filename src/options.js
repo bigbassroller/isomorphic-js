@@ -23,14 +23,6 @@ server.route({
   }
 });
 
-const JSON_FILE_PATH = '/data.json';
-server.route({
-  method: 'GET',
-  path: JSON_FILE_PATH,
-  handler: (request, reply) => {
-    reply.file('dist/components/pages/Home/data.json');
-  }
-});
 
 const PORTFOLIO_JSON_FILE_PATH = '/portfolio.json';
 server.route({
@@ -40,6 +32,7 @@ server.route({
     reply.file('dist/components/pages/Home/portfolio.json');
   }
 });
+
 
 server.route({
   method: 'GET',

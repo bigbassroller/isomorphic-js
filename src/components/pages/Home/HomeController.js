@@ -1,6 +1,6 @@
+import "babel-polyfill";
 import Controller from '../../../lib/controller';
 import nunjucks from 'nunjucks';
-import { getUsefulContents } from '../../../lib/ajax';
 import fetch from "isomorphic-fetch";
 import promise from "es6-promise";
 
@@ -8,12 +8,20 @@ import promise from "es6-promise";
 function onClick(e) {
   console.log(e.currentTarget);
 }
-
+  
 function getData(context) {
- let name = {"foo": "bar"};
-
- return name;
+ let data = {
+  "name": "Leanne Graham"
+ }
+ return data;
 }
+
+function fetchData(context) {
+  return fetch("http://jsonplaceholder.typicode.com/users/1").then(function(response) {
+     return response.json();
+  });
+}
+
 
 export default class HomeController extends Controller {
 
@@ -25,12 +33,13 @@ export default class HomeController extends Controller {
   }
 
   toString(callback) {
-    // this can be handled more eloquently using Object.assign
-    // but we are not including the polyfill dependency
-    // for the sake of simplicity
-    let context = getData(this.context);
-    context.data = this.context.data;
 
+    // Works 
+    let context = getData(this.context);
+    // Doesn't work
+    // let context = fetchData(this.context);
+
+    context.data = this.context.data;
 
     nunjucks.render('components/pages/Home/home.html', context, (err, html) => {
       if (err) {
