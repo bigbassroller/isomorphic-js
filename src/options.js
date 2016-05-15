@@ -1,7 +1,6 @@
 import Hapi from 'hapi';
 import path from 'path';
 import nunjucks from 'nunjucks';
-import Inert from 'inert';
 
 const server = new Hapi.Server({
   debug: {
@@ -12,7 +11,6 @@ server.connection({
   host: 'localhost',
   port: 8001
 });
-server.register(Inert, () => {});
 
 const APP_FILE_PATH = '/application.js';
 server.route({
@@ -23,16 +21,32 @@ server.route({
   }
 });
 
-
-const PORTFOLIO_JSON_FILE_PATH = '/portfolio.json';
+const SLIDEOUT_FILE_PATH = '/slideout.js';
 server.route({
   method: 'GET',
-  path: PORTFOLIO_JSON_FILE_PATH,
+  path: SLIDEOUT_FILE_PATH,
+  handler: (request, reply) => {
+    reply.file('dist/slideout.js');
+  }
+});
+
+const DATA_FILE_PATH = '/data.json';
+server.route({
+  method: 'GET',
+  path: DATA_FILE_PATH,
+  handler: (request, reply) => {
+    reply.file('dist/components/pages/Home/data.json');
+  }
+});
+
+const PORTFOLIO_DATA_FILE_PATH = '/portfolio.json';
+server.route({
+  method: 'GET',
+  path: PORTFOLIO_DATA_FILE_PATH,
   handler: (request, reply) => {
     reply.file('dist/components/pages/Home/portfolio.json');
   }
 });
-
 
 server.route({
   method: 'GET',
