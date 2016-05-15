@@ -3,7 +3,7 @@
 Get Started
 ```npm install```
 ```gulp```
-go to ```localhost:8001``` in your browser.
+go to localhost:8001 in your browser.
 
 Roadmap:
 * ~~Add slideout.js navigation~~ We making our own!
