@@ -1,8 +1,9 @@
 # Isomorphic JS
 
 Get Started
-```npm install```
-```gulp```
+```npm install
+```gulp
+
 go to localhost:8001 in your browser.
 
 Roadmap:
