@@ -1,5 +1,10 @@
 # Isomorphic JS
 
+Get Started
+```npm install```
+```gulp```
+go to ```localhost:8001``` in your browser.
+
 Roadmap:
 * ~~Add slideout.js navigation~~ We making our own!
 * Replace gulp/browserify with webpack?
