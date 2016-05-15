@@ -17,9 +17,10 @@ function getData(context) {
 }
 
 function fetchData(context) {
-  return fetch("http://jsonplaceholder.typicode.com/users/1").then(function(response) {
-     return response.json();
-  });
+    return fetch("http://jsonplaceholder.typicode.com/users/1").then(function(response) {
+       let data = response.json().body;
+       return data;
+    });
 }
 
 
