@@ -1,25 +1,8 @@
 import "babel-polyfill";
 import Controller from '../../../lib/controller';
 import nunjucks from 'nunjucks';
-import { getUsefulContents } from '../../../lib/ajax';
-import objectAssign from 'object-assign';
-import $ from 'jquery';
-import jQuery from 'jquery';
-import window from 'window-shim';
 import fetch from "isomorphic-fetch";
 import promise from "es6-promise";
-import co from "co";
-import superagent from "superagent";
-
-// export for others scripts to use
-window.$ = $;
-window.jQuery = jQuery;
-
-if (window.jQuery) {  
-    console.log('jquery')
-} else {
-    console.log('no jquery')
-}
 
 
 function onClick(e) {
@@ -27,29 +10,17 @@ function onClick(e) {
 }
   
 function getData(context) {
- let name = {
-  "foo": "bar"
+ let data = {
+  "name": "Leanne Graham"
  }
-
- return name;
+ return data;
 }
 
-let res;
-const portfolioData = co().res;
-console.log('iam defined yet?', res);
-
-co(function*() {
-  let res;
-  try {
-    res = yield superagent.get('/portfolio.json')
-  } catch (error) {
-    // getCached() is undefined
-    res = getCached();
-  }
-  // res needs to be available outside this function
-  console.log('this is the mother fucking response! => ', res);
-  return res;
-}).catch();
+function fetchData(context) {
+  return fetch("http://jsonplaceholder.typicode.com/users/1").then(function(response) {
+     return response.json();
+  });
+}
 
 
 export default class HomeController extends Controller {
@@ -62,10 +33,13 @@ export default class HomeController extends Controller {
   }
 
   toString(callback) {
-    // this can be handled more eloquently using Object.assign
-    // but we are not including the polyfill dependency
-    // for the sake of simplicity
+
+    // Works 
     let context = getData(this.context);
+
+    // Doesn't work
+    // let context = fetchData(this.context);
+
     context.data = this.context.data;
 
     nunjucks.render('components/pages/Home/home.html', context, (err, html) => {
