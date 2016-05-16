@@ -17,10 +17,14 @@ function getData(context) {
 }
 
 function fetchData(context) {
-    return fetch("http://jsonplaceholder.typicode.com/users/1").then(function(response) {
-       let data = response.json().body;
-       return data;
-    });
+  return fetch('http://jsonplaceholder.typicode.com/users/1').then(function(response) { 
+        // Convert to JSON
+        return response.json();
+      }).then(function(json) {
+        let data = json;
+        console.log(data);
+        return data; 
+      });
 }
 
 
@@ -36,9 +40,9 @@ export default class HomeController extends Controller {
   toString(callback) {
 
     // Works 
-    let context = getData(this.context);
+    // let context = getData(this.context);
     // Doesn't work
-    // let context = fetchData(this.context);
+    let context = fetchData(this.context);
 
     context.data = this.context.data;
 
