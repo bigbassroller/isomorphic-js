@@ -1,0 +1,42 @@
+// ================================================================================
+// Media Queries Helpers                                                                         
+// ================================================================================
+// @import "media-queries-helpers.scss";
+// $screen-xs-max:  420px !default;                           
+// $screen-sm-min:  420px !default;
+// $screen-md-min:  720px !default;
+// $screen-lg-min:  960px !default;
+// max-width: $screen-xs-max                                   = green 320px
+// min-width: $screen-sm-min) and (max-width: $screen-sm-max   = pink 
+// min-width: $screen-md-min) and (max-width: $screen-md-max   = teal 
+// min-width: $screen-lg-min                                   = tomato 
+
+// ================================================================================
+//  Begin Media Queries                                                                             
+// ================================================================================
+@media (max-width: $screen-xs-max) {
+body {
+    padding-top: 0px;
+}
+.navbar-fixed-top {
+    position: relative;
+}
+
+}
+// End (max-width: $screen-xs-max)
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+}
+// End (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+}
+// End (min-width: $screen-md-min) and (max-width: $screen-md-max)
+@media (min-width: $screen-lg-min) {
+
+}
+@media (min-width: 1585px) {
+
+}
+
+

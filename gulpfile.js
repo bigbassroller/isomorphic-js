@@ -17,7 +17,9 @@ gulp.task('sass', function () {
             './src/sass/variables.scss',
             './src/sass/bootstrap.scss',
             './src/sass/font-awesome.scss',
-            './src/sass/custom.scss'
+            './src/sass/custom.scss',
+            // './src/sass/media-queries-helpers.scss',
+            './src/sass/media-queries.scss'
         ],
         dest: './dist/assets/css',
         outputName: 'main.min.css'

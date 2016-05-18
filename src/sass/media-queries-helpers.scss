@@ -1,0 +1,67 @@
+// body {
+//     background: brown;
+// }
+// .container {
+//     background: tan;
+// }
+// // Icons
+// .icons-list li {
+//     background-color: teal;
+// }
+// .icons-list li span {
+//     background-color: gainsboro;
+// }
+// // Contact Form
+// .contact-form {
+//     background: wheat none repeat scroll 0 0;
+// }
+// .contact-form form {
+//     background: violet none repeat scroll 0 0;
+// }
+// .form-inline, .form-group {
+//     background: turquoise none repeat scroll 0 0;
+// }
+// // Icon Collage
+// .left-side {
+//     background-color: teal;
+// }
+// .right-side {
+//     background-color: purple;
+// }
+// // Carousel 
+// .carousel-indicators.vertical {
+//     background: gold;
+// }
+// // About
+// #ui-ux {
+//     background-size: 100% auto;
+// }
+// #ui-ux.thumbnail, 
+// #web-graphic-design.thumbnail, 
+// #development.thumbnail {
+//     background-size: 100% auto !important;
+// }
+// // Bios Main Container
+// .bios-main-container {
+//     background: transparent none repeat scroll 0 0;
+// }
+@media (max-width: $screen-xs-max) {
+    .container {
+        background: green none repeat scroll 0 0;
+    }  
+}
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .container {
+        background: pink none repeat scroll 0 0;
+    }
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    .container {
+        background: teal none repeat scroll 0 0;
+    }
+}
+@media (min-width: $screen-lg-min) {
+    .container {
+        background: tomato none repeat scroll 0 0;
+    }
+}
