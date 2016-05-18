@@ -17,7 +17,7 @@
 		{% for item in blogPosts %}
 			<article class="blog-posts-article">
 				<header class="article-header">
-					<h1>{{item.title}}</h1>
+					<h1><a href="/blog/{{item.slug}}" data-navigate>{{item.title}}</a></h1>
 				</header>
 				<div class="entry-content">
 					<p>{{item.entry_content}}</p>
@@ -32,3 +32,4 @@
 		</div>
 	</div>
 </section>
+{% include "components/partials/footer.html" %}
