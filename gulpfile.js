@@ -96,7 +96,7 @@ gulp.task('start', function () {
 });
 
 gulp.task('build', function (callback) {
-  sequence(['sass', 'compile', 'copy', 'bundle'], callback);
+  sequence(['sass', 'media', 'compile', 'copy', 'bundle'], callback);
 });
 
 gulp.task('default', function (callback) {
