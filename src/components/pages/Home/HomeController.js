@@ -33,7 +33,25 @@ export default class HomeController extends Controller {
 
   index(application, request, reply, callback) {
     this.context.cookie.set('random', '_' + (Math.floor(Math.random() * 1000) + 1), { path: '/' });
-    this.context.data = { random: Math.floor(Math.random() * 1000) + 1 };
+    this.context.eneconfoo =  {
+    "project_name": "Eneconfoo",
+    "cover_photo": "enecon.png",
+    "case_study_url": "enecon",
+    "live_site_url": "http://eneconnorcal.com/",
+    "entry_title": "Custom WordPress Theme That is Reusable",
+    "entry_content": "Ma nizzle . Aliquam sagittis massa owned maurizzle.",
+    "featured_image": "banner-placeholder.png",
+    "categories": [
+      "web design",
+      "web development",
+      "wordpress"
+    ],
+    "project_completion_date": "May 2014",
+    "publish_date": "May 2014",
+    "post_order": 2,
+    "published": true,
+    "id": 3
+  };
     callback(null);
   }
 
@@ -44,7 +62,7 @@ export default class HomeController extends Controller {
     // Doesn't work
     let context = fetchData(this.context);
 
-    context.data = this.context.data;
+    context.eneconfoo = this.context.eneconfoo;
 
     nunjucks.render('components/pages/Home/home.html', context, (err, html) => {
       if (err) {

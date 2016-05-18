@@ -21,15 +21,6 @@ server.route({
   }
 });
 
-const SLIDEOUT_FILE_PATH = '/slideout.js';
-server.route({
-  method: 'GET',
-  path: SLIDEOUT_FILE_PATH,
-  handler: (request, reply) => {
-    reply.file('dist/slideout.js');
-  }
-});
-
 const DATA_FILE_PATH = '/data.json';
 server.route({
   method: 'GET',
@@ -62,7 +53,7 @@ server.route({
     method: 'GET',
     path: '/{file}.css',
     handler: function (request, reply) {
-        reply.file("dist/styles/"+request.params.file+".css");
+        reply.file("dist/assets/css/"+request.params.file+".css");
     }
 });
 
@@ -71,8 +62,56 @@ server.route({
     path: '/{param*}',
     handler: {
         directory: {
-            path: 'dist/imgs/'
+            path: 'dist/assets/imgs/'
         }
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/FontAwesome.otf',
+    handler: function (request, reply) {
+        reply.file('dist/assets/fonts/font-awesome/fonts/FontAwesome.otf');
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/fontawesome-webfont.eot',
+    handler: function (request, reply) {
+        reply.file('dist/assets/fonts/font-awesome/fonts/fontawesome-webfont.eot');
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/fontawesome-webfont.svg',
+    handler: function (request, reply) {
+        reply.file('dist/assets/fonts/font-awesome/fonts/fontawesome-webfont.svg');
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/fontawesome-webfont.ttf',
+    handler: function (request, reply) {
+        reply.file('dist/assets/fonts/font-awesome/fonts/fontawesome-webfont.ttf');
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/fontawesome-webfont.woff',
+    handler: function (request, reply) {
+        reply.file('dist/assets/fonts/font-awesome/fonts/fontawesome-webfont.woff');
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/fontawesome-webfont.woff2',
+    handler: function (request, reply) {
+        reply.file('dist/assets/fonts/font-awesome/fonts/fontawesome-webfont.woff2');
     }
 });
 
