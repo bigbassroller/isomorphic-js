@@ -35,12 +35,12 @@ export default class BlogController extends Controller {
     this.context.cookie.set('random', '_' + (Math.floor(Math.random() * 1000) + 1), { path: '/' });
     this.context.blogPosts =  [
         {
-          "title": "Hello One More Time",
-          "cover_photo": "hello-one-more-time.png",
+          "title": "Hello Tomorrow",
+          "cover_photo": "hello-tomorrow.png",
           "slug": "hello-world",
-          "entry_title": "Hello One More Time, Its a Fine Day, One More Time",
-          "entry_content": "People open windows one more time. Aliquam sagittis massa Ma nizzle maurizzle.",
-          "featured_image": "hello-one-more-time-banner.png",
+          "entry_title": "Hello Tomorrow, How are You?",
+          "entry_content": "Hello Tomorrow, Aliquam sagittis massa Ma nizzle maurizzle.",
+          "featured_image": "hello-tomorrow.png",
           "categories": [
             "category 1",
             "category 2",
