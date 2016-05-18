@@ -5,6 +5,7 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var sequence = require('run-sequence');
 var path = require('path');
+var merge = require('merge-stream');
 var newer = require('gulp-newer');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
@@ -18,7 +19,7 @@ gulp.task('sass', function () {
             './src/sass/font-awesome.scss',
             './src/sass/custom.scss'
         ],
-        dest: './dist/styles',
+        dest: './dist/assets/css',
         outputName: 'main.min.css'
     }];
 
@@ -27,19 +28,35 @@ gulp.task('sass', function () {
         return gulp.src(bundleConfig.entries)
             .pipe(newer(path.join(bundleConfig.dest, bundleConfig.outputName)))
             .pipe(concat(bundleConfig.outputName))
-            .pipe(sass({outputStyle: 'compressed'}))
-            // .pipe(sass())
+            // .pipe(sass({outputStyle: 'compressed'}))
+            .pipe(sass())
             .pipe(gulp.dest(bundleConfig.dest));
     });
+});
+
+gulp.task('media', function () {
+
+    var html = gulp.src('./src/**/*.html')
+            .pipe(gulp.dest(path.join('./dist')));
+
+    var metas = gulp.src('./src/media/*')
+        .pipe(gulp.dest(path.join('./dist/')));
+
+    var fontAwewsome = gulp.src('./node_modules/font-awesome/fonts/**')
+        .pipe(gulp.dest(path.join('./dist/assets', 'fonts', 'font-awesome', 'fonts')));
+
+    var glyphicons = gulp.src('./node_modules/bootstrap-sass/assets/fonts/bootstrap/**')
+        .pipe(gulp.dest(path.join('./dist/assets', 'fonts', 'bootstrap')));
+
+    var img = gulp.src('./src/img/*')
+            .pipe(gulp.dest(path.join('./dist/assets', 'img')));
+
+    return merge(metas, fontAwewsome, glyphicons, img);
 });
 
 gulp.task('copy', function () {
   return gulp.src([
     'src/**/*.html',
-    'src/**/*.png',
-    'src/**/*.json',
-    // 'node_modules/slideout/dist/slideout.min.js',
-    'node_modules/slideout/dist/slideout.js',
     'node_modules/babel-polyfill/dist/polyfill.min.js'
     ])
     .pipe(gulp.dest('dist'));
@@ -83,5 +100,5 @@ gulp.task('build', function (callback) {
 });
 
 gulp.task('default', function (callback) {
-  sequence(['sass', 'compile', 'watch', 'copy', 'bundle'], 'start', callback);
+  sequence(['sass', 'media', 'copy', 'compile', 'watch', 'bundle'], 'start', callback);
 });
