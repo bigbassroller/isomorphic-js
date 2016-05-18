@@ -9,22 +9,11 @@ function onClick(e) {
   console.log(e.currentTarget);
 }
   
-function getData(context) {
+function getName(context) {
  let data = {
-  "name": "Leanne Graham"
+  "name": "The dude"
  }
  return data;
-}
-
-function fetchData(context) {
-  return fetch('http://jsonplaceholder.typicode.com/users/1').then(function(response) { 
-        // Convert to JSON
-        return response.json();
-      }).then(function(json) {
-        let data = json;
-        console.log(data);
-        return data; 
-      });
 }
 
 
@@ -33,36 +22,13 @@ export default class HomeController extends Controller {
 
   index(application, request, reply, callback) {
     this.context.cookie.set('random', '_' + (Math.floor(Math.random() * 1000) + 1), { path: '/' });
-    this.context.eneconfoo =  {
-    "project_name": "Eneconfoo",
-    "cover_photo": "enecon.png",
-    "case_study_url": "enecon",
-    "live_site_url": "http://eneconnorcal.com/",
-    "entry_title": "Custom WordPress Theme That is Reusable",
-    "entry_content": "Ma nizzle . Aliquam sagittis massa owned maurizzle.",
-    "featured_image": "banner-placeholder.png",
-    "categories": [
-      "web design",
-      "web development",
-      "wordpress"
-    ],
-    "project_completion_date": "May 2014",
-    "publish_date": "May 2014",
-    "post_order": 2,
-    "published": true,
-    "id": 3
-  };
     callback(null);
   }
 
   toString(callback) {
 
     // Works 
-    // let context = getData(this.context);
-    // Doesn't work
-    let context = fetchData(this.context);
-
-    context.eneconfoo = this.context.eneconfoo;
+    let context = getName(this.context);
 
     nunjucks.render('components/pages/Home/home.html', context, (err, html) => {
       if (err) {
