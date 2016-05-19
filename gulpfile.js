@@ -59,6 +59,7 @@ gulp.task('media', function () {
 gulp.task('copy', function () {
   return gulp.src([
     'src/**/*.html',
+    'src/**/*.json',
     'node_modules/babel-polyfill/dist/polyfill.min.js'
     ])
     .pipe(gulp.dest('dist'));
