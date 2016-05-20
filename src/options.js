@@ -8,7 +8,7 @@ const server = new Hapi.Server({
   }
 });
 server.connection({
-  host: 'ignitor.io',
+  host: 'localhost',
   port: 8001
 });
 
@@ -19,52 +19,6 @@ server.route({
   handler: (request, reply) => {
     reply.file('dist/build/application.js');
   }
-});
-
-const DATA_FILE_PATH = '/data.json';
-server.route({
-  method: 'GET',
-  path: DATA_FILE_PATH,
-  handler: (request, reply) => {
-    reply.file('dist/components/pages/Home/data.json');
-  }
-});
-
-const PORTFOLIO_DATA_FILE_PATH = '/portfolio.json';
-server.route({
-  method: 'GET',
-  path: PORTFOLIO_DATA_FILE_PATH,
-  handler: (request, reply) => {
-    reply.file('dist/components/pages/Home/portfolio.json');
-  }
-});
-
-server.route({
-  method: 'GET',
-  path: '/templates/{template*}',
-  handler: {
-    file: (request) => {
-      return path.join('dist', request.params.template);
-    }
-  }
-});
-
-server.route({
-    method: 'GET',
-    path: '/{file}.css',
-    handler: function (request, reply) {
-        reply.file("dist/assets/css/"+request.params.file+".css");
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/{param*}',
-    handler: {
-        directory: {
-            path: 'dist/assets/imgs/'
-        }
-    }
 });
 
 server.route({
@@ -115,6 +69,42 @@ server.route({
     }
 });
 
+const BLOG_DATA_FILE_PATH = '/api/blog';
+server.route({
+  method: 'GET',
+  path: BLOG_DATA_FILE_PATH,
+  handler: (request, reply) => {
+    reply.file('dist/components/pages/Blog/blog.json');
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/templates/{template*}',
+  handler: {
+    file: (request) => {
+      return path.join('dist', request.params.template);
+    }
+  }
+});
+
+server.route({
+    method: 'GET',
+    path: '/{file}.css',
+    handler: function (request, reply) {
+        reply.file("dist/assets/css/"+request.params.file+".css");
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+        directory: {
+            path: 'dist/assets/imgs/'
+        }
+    }
+});
 
 export default {
   nunjucks: './dist',
