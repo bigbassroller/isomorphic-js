@@ -1,7 +1,11 @@
 import "babel-polyfill";
 import Controller from '../../../lib/controller';
 import nunjucks from 'nunjucks';
-
+import objectAssign from 'object-assign';
+import $ from 'jquery';
+import jQuery from 'jquery';
+import window from 'window-shim';
+import Rx from 'rxjs/Rx';
 
 function onClick(e) {
   console.log(e.currentTarget);
