@@ -1,0 +1,35 @@
+{% include "components/partials/nav.html" %}
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="jumbotron">
+				<h1>Todos Page</h1>
+				<p>Server rendered vannilla JavaScript app for lightning fast web apps</p>
+				<a class="btn btn-primary btn-lg" href="https://github.com/bigbassroller/isomorphic-js">
+					DOWNLOAD ON GITHUB
+				</a>
+			</div>
+		</div>
+</section>
+<section>
+	<div class="container">
+		<div class="row">
+		{% for item in todos %}
+			<article class="blog-posts-article">
+				<header class="article-header">
+					<h1><a href="/blog/{{item.slug}}" data-navigate>{{item.title}}</a></h1>
+				</header>
+				<div class="entry-content">
+					<p>{{item.entry_content}}</p>
+				</div>
+				<footer class="article-footer">
+					{{item.categories}}	
+				</footer>
+			</article>
+		{% else %}
+		  <p>This would display if the 'todos' collection were empty</p>
+		{% endfor %}
+		</div>
+	</div>
+</section>
+{% include "components/partials/footer.html" %}
