@@ -1,7 +1,12 @@
 import "babel-polyfill";
 import Controller from '../../../lib/controller';
 import nunjucks from 'nunjucks';
-
+import objectAssign from 'object-assign';
+import $ from 'jquery';
+import jQuery from 'jquery';
+import window from 'window-shim';
+import Rx from 'rxjs/Rx';
+import {RxHttpRequest} from 'rx-http-request';
 
 function onClick(e) {
   console.log(e.currentTarget);
@@ -13,70 +18,44 @@ function getName(context) {
     fname: 'Michael',
     lname: 'Chavez'
   };
-  // split path params
-  let nameParts = context.params.name ? context.params.name.split('/') : [];
-
-  // order of precedence
-  // 1. path param
-  // 2. query param
-  // 3. default value
-  name.fname = (nameParts[0] || context.query.fname) ||
-    name.fname;
-  name.lname = (nameParts[1] || context.query.lname) ||
-    name.lname;
 
   return name;
 }
+
+function getData() {
+  const options = {
+      qs: {
+          
+      },
+      headers: {
+          'User-Agent': 'RX-HTTP-Request'
+      },
+      json: true // Automatically parses the JSON string in the response 
+  };
+   
+  RxHttpRequest.get('http://localhost:8001/api/blog', options).subscribe(
+      (data) => {
+   
+          if (data.response.statusCode === 200) {
+              let json = JSON.stringify(data);
+              console.log('this is data from the server', data); // Show the JSON response object. 
+              console.log('This is the json ', json)
+              return json;
+          }
+      },
+      (err) => console.error(err) // Show error in console 
+  );
+}
+
+let callData = getData();
 
 export default class BlogController extends Controller {
 
 
   index(application, request, reply, callback) {
     this.context.cookie.set('random', '_' + (Math.floor(Math.random() * 1000) + 1), { path: '/' });
-    this.context.blogPosts =  [
-        {
-          "title": "Hello Tomorrow",
-          "cover_photo": "hello-tomorrow.png",
-          "slug": "hello-world",
-          "entry_title": "Hello Tomorrow, How are You?",
-          "entry_content": "Hello Tomorrow, Aliquam sagittis massa Ma nizzle maurizzle.",
-          "featured_image": "hello-tomorrow.png",
-          "categories": [
-            "category 1",
-            "category 2",
-            "category 3"
-          ],
-          "id": 3
-        },
-        {
-          "title": "Hello Again",
-          "cover_photo": "hello-again.png",
-          "slug": "hello-world",
-          "entry_title": "Hello Again, Its a Fine Day Again",
-          "entry_content": "People open windows again. Aliquam sagittis massa Ma nizzle maurizzle.",
-          "featured_image": "hello-world-again-banner.png",
-          "categories": [
-            "category 1",
-            "category 2",
-            "category 3"
-          ],
-          "id": 2
-        },
-        {
-          "title": "Hello World",
-          "cover_photo": "hello-world.png",
-          "slug": "hello-world",
-          "entry_title": "Hello World, Its a Fine Day",
-          "entry_content": "People open windows. Aliquam sagittis massa Ma nizzle maurizzle.",
-          "featured_image": "hello-world-banner.png",
-          "categories": [
-            "category 1",
-            "category 2",
-            "category 3"
-          ],
-          "id": 1
-        }
-      ];
+    this.context.data = { random: Math.floor(Math.random() * 1000) + 1 };
+    this.context.blogPosts =  getData(this.data);
     callback(null);
   }
 
@@ -85,8 +64,9 @@ export default class BlogController extends Controller {
     // this can be handled more eloquently using Object.assign
     // but we are not including the polyfill dependency
     // for the sake of simplicity
-    let context = {};
-    context.blogPosts = this.context.blogPosts;
+    let context = getName(this.context);
+    context.data = this.context.data;
+    // context.blogPosts = this.context.blogPosts;
 
     nunjucks.render('components/pages/Blog/blog.html', context, (err, html) => {
       if (err) {

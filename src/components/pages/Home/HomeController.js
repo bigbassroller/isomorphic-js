@@ -10,10 +10,11 @@ function onClick(e) {
 }
   
 function getName(context) {
- let data = {
-  "name": "The dude"
- }
- return data;
+  let name = {
+    fname: 'Michael',
+    lname: 'Chavez'
+  };
+ return name;
 }
 
 
@@ -22,6 +23,7 @@ export default class HomeController extends Controller {
 
   index(application, request, reply, callback) {
     this.context.cookie.set('random', '_' + (Math.floor(Math.random() * 1000) + 1), { path: '/' });
+    this.context.data = { random: Math.floor(Math.random() * 1000) + 1 };
     callback(null);
   }
 
@@ -29,6 +31,7 @@ export default class HomeController extends Controller {
 
     // Works 
     let context = getName(this.context);
+    context.data = this.context.data;
 
     nunjucks.render('components/pages/Home/home.html', context, (err, html) => {
       if (err) {
